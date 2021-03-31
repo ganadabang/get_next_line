@@ -6,13 +6,13 @@
 /*   By: hyeonsok <hyeonsok@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/30 20:19:50 by hyeonsok          #+#    #+#             */
-/*   Updated: 2021/03/31 14:19:54 by hyeonsok         ###   ########.fr       */
+/*   Updated: 2021/04/01 00:31:18 by hyeonsok         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line_bonus.h"
 
-char	*check_save(char **save)
+static char	*check_save(char **save)
 {
 	if (!*save)
 	{
@@ -23,7 +23,7 @@ char	*check_save(char **save)
 	return (*save);
 }
 
-int		clean_save(char **save)
+static int	clean_save(char **save)
 {
 	if (!*save)
 		return (-1);
@@ -32,7 +32,7 @@ int		clean_save(char **save)
 	return (-1);
 }
 
-int		real_cat(char **save, char buff[], size_t size)
+static int	real_cat(char **save, char buff[], size_t size)
 {
 	char	*tmp;
 
@@ -54,7 +54,7 @@ int		real_cat(char **save, char buff[], size_t size)
 	return (0);
 }
 
-int		takeout_line(char **lineptr, char **save, char *newline)
+static int	takeout_line(char **lineptr, char **save, char *newline)
 {
 	char	*tmp;
 
@@ -83,7 +83,7 @@ int		takeout_line(char **lineptr, char **save, char *newline)
 	return (0);
 }
 
-int		get_next_line(int fd, char **lineptr)
+int	get_next_line(int fd, char **lineptr)
 {
 	static char		*save[OPEN_MAX];
 	char			buff[BUFFER_SIZE + 1];

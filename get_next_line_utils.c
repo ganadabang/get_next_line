@@ -6,7 +6,7 @@
 /*   By: hyeonsok <hyeonsok@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/30 23:32:12 by hyeonsok          #+#    #+#             */
-/*   Updated: 2021/03/30 23:33:09 by hyeonsok         ###   ########.fr       */
+/*   Updated: 2021/04/01 00:32:28 by hyeonsok         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 size_t	ft_strlen(const char *s)
 {
-	const char *tmp;
+	const char	*tmp;
 
 	tmp = s;
 	while (*s)
