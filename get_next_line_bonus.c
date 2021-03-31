@@ -44,14 +44,14 @@ int		real_cat(char **save, char buff[], size_t size)
 	if (!tmp || !*save)
 	{
 		free(*save);
+		*save = NULL;
 		free(tmp);
-		return (-1);
+		return (1);
 	}
 	ft_memcpy(*save, tmp, ft_strlen(tmp) + 1);
 	free(tmp);
-	tmp = NULL;
 	ft_strlcat(*save, buff, size);
-	return (1);
+	return (0);
 }
 
 int		takeout_line(char **lineptr, char **save, char *newline)
@@ -66,7 +66,8 @@ int		takeout_line(char **lineptr, char **save, char *newline)
 		tmp = ft_strdup(++newline);
 		if (!*lineptr || !tmp)
 		{
-			free(lineptr);
+			free(*lineptr);
+			*lineptr = NULL;
 			free(tmp);
 			return (clean_save(save));
 		}
