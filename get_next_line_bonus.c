@@ -91,9 +91,9 @@ int		get_next_line(int fd, char **lineptr)
 	size_t			alloc_size;
 	ssize_t			read_size;
 
-	buff[BUFFER_SIZE] = '\0';
 	if ((BUFFER_SIZE < 1) || (fd > OPEN_MAX) || (fd < 0) || !lineptr)
 		return (-1);
+	buff[BUFFER_SIZE] = '\0';
 	if (!check_save(&save[fd]))
 		return (-1);
 	alloc_size = ft_strlen(save[fd]);

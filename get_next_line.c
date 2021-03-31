@@ -44,7 +44,7 @@ int		real_cat(char **save, char buff[], size_t size)
 	if (!tmp || !*save)
 	{
 		free(*save);
-		*save = NULL;'
+		*save = NULL;
 		free(tmp);
 		return (1);
 	}
@@ -66,7 +66,7 @@ int		takeout_line(char **lineptr, char **save, char *newline)
 		tmp = ft_strdup(++newline);
 		if (!*lineptr || !tmp)
 		{
-			free((*lineptr);
+			free(*lineptr);	
 			*lineptr = NULL;
 			free(tmp);
 			return (clean_save(save));
@@ -91,9 +91,9 @@ int		get_next_line(int fd, char **lineptr)
 	size_t			alloc_size;
 	ssize_t			read_size;
 
-	buff[BUFFER_SIZE] = '\0';
 	if ((BUFFER_SIZE < 1) || (fd > OPEN_MAX) || (fd < 0) || !lineptr)
 		return (-1);
+	buff[BUFFER_SIZE] = '\0';
 	if (!check_save(&save[fd]))
 		return (-1);
 	alloc_size = ft_strlen(save[fd]);
